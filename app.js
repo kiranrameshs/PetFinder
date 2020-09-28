@@ -15,7 +15,6 @@ const methodOverride = require('method-override');
 const fileUpload = require('express-fileupload');
 const AWS = require('aws-sdk')
 const { v4: uuidv4 } = require('uuid');
-const AWS_Location = 'https://krspetfinder.s3.ap-south-1.amazonaws.com/';
 var finalFileName;
 
 
@@ -26,7 +25,7 @@ var finalFileName;
 
 // Connect to MongoURI exported from config
 const keys = require('./config/keys');
-
+const AWS_Location = AWS_Location;
 //Collections
 const User = require('./models/user');
 const Post = require('./models/post');
@@ -224,7 +223,11 @@ var allowComments;
     var result = quickstart('uploads/'+finalFileName);
     var newAnnotation = {
       element:'',
-      breed: ''
+      firstTag: '',
+      secondtTag: '',
+      thirdTag: '',
+      fourthTag: '',
+
     }
   
   
@@ -236,7 +239,8 @@ var allowComments;
         secondtTag: result[2].description,
         thirdTag: result[3].description,
         fourthTag: result[4].description,
-      }
+      },timeout(5000);
+
       console.log("element is "+ newAnnotation.element)
       console.log("firstTag is "+ newAnnotation.firstTag)
       console.log("secondtTag is "+ newAnnotation.secondtTag)
@@ -409,17 +413,25 @@ async function quickstart(fullfilename) {
 
   // Creates a client
   const clientv = new vision.ImageAnnotatorClient({
-      keyFilename: './config/APIKey.json'
+      keyFilename: API_Key_Filename
+      //keyFilename: './config/APIKey.json'
   });
 
   // Performs label detection on the image file
-  const [result] = await clientv.labelDetection(fullfilename);
-  const labels = result.labelAnnotations;
-  // console.log('Labels:');
-  // labels.forEach(label => console.log(label.description));
-  //console.log(result);
-  return labels;
+  
+  const [result] = clientv.labelDetection(fullfilename);
+  [result].then( ([result]) => {const labels = result.labelAnnotations;
+    // console.log('Labels:');
+    // labels.forEach(label => console.log(label.description));
+    //console.log(result);
+    return labels;})
+    ,timeout(5000);
+  
 
+}
+
+function timeout(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }
 
     

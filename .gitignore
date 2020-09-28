@@ -1,4 +1,4 @@
 node_modules
 keys-dev.js
-APIKey.json
 uploads/
+config/APIKey.json
