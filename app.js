@@ -25,7 +25,7 @@ var finalFileName;
 
 // Connect to MongoURI exported from config
 const keys = require('./config/keys');
-const AWS_Location = AWS_Location;
+
 //Collections
 const User = require('./models/user');
 const Post = require('./models/post');
@@ -81,7 +81,7 @@ mongoose.connect(keys.MongoURI, {useNewUrlParser: true})
 .then(() => {console.log('Connected to remote db successfully')}).catch(() =>
 {console.log(err)});
 
-
+const AWS_Location = AWSLocation;
 
 // server port set as env variable and for local port as 3000
 const port = process.env.PORT || 3000;

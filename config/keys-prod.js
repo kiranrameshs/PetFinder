@@ -10,5 +10,5 @@ module.exports = {
     AWS_Secret_Key: process.env.AWSSecretKey,
     AWS_Bucket_Name: process.env.AWSBucketName,
     API_Key_Filename:  process.env.APIKeyFilename,
-    AWS_Location: process.env.AWSLocation
+    AWSLocation: process.env.AWSLOCATION
 }
