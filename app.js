@@ -42,6 +42,7 @@ const { findOne } = require('./models/user');
 const app = express();
 
 app.use(cookieParser());
+app.use(bodyParser());
 app.use(session({ secret: 'keyboard cat',
 resave: true,
 saveUninitialized: true }));
