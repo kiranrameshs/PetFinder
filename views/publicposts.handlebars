@@ -1,0 +1,49 @@
+<div class="container">
+     <h2 style="text-align: center;">All Public Posts</h2>
+    {{#each posts}}
+    <div class="media">
+    <img src={{user.image}} class="mr-3 post-user-pic" >
+        <div class="media-body">
+            <a href="/showposts/{{_id}}"><h3 class="mt-0">{{user.fullName}}</h3></a>
+                <h5>{{title}} <small class="status"><i class="fa fa-globe"></i></small></h5>
+                <small><b>{{tag}}</b> on </small>
+                <small>{{date}}</small>
+                <p>{{body}}</p>
+                <img src={{image}} class="mr-3 post-user-pic"> 
+                <div> 
+                <br>
+                    {{#if allowComments}}
+                    {{#each comments}}
+                    <div class="media mt-3">
+                    <a class="mr-3" href="#">
+                        <img id="commentUserImage" src="{{commentUser.image}}" class="mr-3" >
+                    </a>
+                    <div class="media-body">
+                        <a href="/showposts/{{commentUser._id}}"><h5 class="mt-0">{{commentUser.fullName}}</h5></a>
+                        <p>{{commentBody}}</p>
+                        <small>{{commentDate}}</small>
+                    </div>
+                    </div>
+                    {{/each}}
+                    <br>
+                    <form action="/addComment/{{_id}}" method="POST" class="form-inline">
+                        <div class="form-group mx-sm-3 mb-2">
+                            
+                            <input type="text" name="commentbody" class="form-control" id="comments" placeholder="Please leave a Comment">
+                        </div>
+                    <button type="submit" class="btn btn-primary mb-2"><i class="fa fa-comment"></i></button>
+                    </form>
+                    {{!-- <p><i class="fa fa-comment"></i></p> --}}
+                    {{else}}
+                    <p class="orange">Commenting is not allowed</p>
+                    {{/if}}
+        </div>
+    </div>
+
+    <hr>
+{{else}}
+<p>
+    No posts yet!
+</p>
+{{/each}}
+</div>

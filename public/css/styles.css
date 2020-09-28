@@ -1,0 +1,141 @@
+#homepage{
+    text-align: center;
+}
+
+#signup{
+    text-align: center;
+    text-justify: auto;
+   
+}
+.btn-facebook {
+    background-color: #4aa1f3;
+    border-radius: 0%;
+    border: 0%;
+    color: #ffffff;
+    width: auto;
+}
+.btn-facebook:link,
+.btn-facebook :visited{
+    text-decoration: none;
+    background-color: #4aa1f3;
+    color: #ffffff;
+}
+.btn-gplus{
+    background-color: #e44b34;
+    border-radius: 0%;
+    border: 0%;
+    color: #ffffff;
+    width: auto;
+}
+.btn-gplus:link,
+.btn-gplus:visited{
+    text-decoration: none;
+    background-color: #e44b34;
+    color: #ffffff;
+}
+#main{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.col-sm-4{
+    margin-bottom: 10px;
+}
+#address{
+    color: green;
+}
+.post-user-pic{
+    height: 100px;
+    width: auto;
+}
+.status{
+    color: green;
+}
+.orange{
+    color: lightsalmon;
+}
+.commentUserImage{
+    height: 65px;
+    width: auto;
+}
+.red{
+    color: red;
+}
+.parallax-content {
+    width: 100%;
+    min-height: 100vh;
+    background-size: cover;
+  }
+  .baner-content {
+	width: 100%;
+  	padding-top: 35vh;
+  	text-align: center;
+  	background-image: url(../img/banner_bg.jpg);
+  	vertical-align: middle;
+}
+
+.baner-content .text-content {
+	text-align: center;
+}
+
+.baner-content .text-content h2 {
+	/* font-size: 36px; */
+	font-weight: 700;
+    color: #fff;
+}
+
+.baner-content .text-content h2 span {
+	font-weight: 700;
+	color: #33c1cf!important;
+}
+
+.baner-content .text-content h2 em {
+	font-style: normal;
+	font-weight: 700;
+	color: #f89624!important;
+}
+
+.baner-content .text-content p {
+	color: #fff;
+	font-size: 14px;
+	line-height: 24px;
+	padding: 0px 25%;
+}
+
+.baner-content .text-content .primary-white-button {
+	margin-top: 25px;
+}
+.primary-white-button a {
+	display: inline-block;
+	background-color: #fff;
+	font-size: 13px;
+	padding: 12px 18px;
+	color: #121212;
+	font-weight: 500;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	text-decoration: none;
+	border-radius: 20px;
+}
+.navbar-brand {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	text-transform: uppercase;
+	color: #fff!important;
+    transition: all 0.5s;
+    text-align: left;
+	 
+}
+
+.navbar-brand em {
+	font-style: normal;
+	color: #f7c552;
+	font-size: 18px;
+}
+.nav-brand-page {
+    font-family: 'Open Sans', sans-serif;
+	font-size: 15px;
+	text-transform: uppercase;
+	color: #fff!important;
+    transition: all 0.5s;
+}
+

@@ -1,0 +1,79 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card" style="width: 18rem;">
+                <img src={{user.image}} class="card-img-top" >
+                     <div class="card-body">
+                        <h5 class="card-title">{{user.fullName}}</h5>
+                    </div>
+            </div>
+        </div>
+             <div class="col-sm-4">
+                 <h1>Profile</h1>
+                 <p class="card-text"><i class="fa fa-user"></i>  {{user.fullName}}</p>
+                 {{#if user.email}}
+                 <p class="card-text"><i class="fa fa-envelope"></i>  {{user.email}}</p>
+                 {{else}}
+                 <form action="/addEmail" method="POST">
+                 <input type="text" name="email" class="form-control" placeholder="Enter Email Address">
+                 <button type="submit" class="btn btn-danger">Save</button> 
+                 </form>
+                 {{/if}}
+
+                 {{#if user.phoneNumber}}
+                 <p class="card-text"><i class="fa fa-phone"></i>  {{user.phoneNumber}}</p>
+                 {{else}}
+                 <form action="/addPhone" method="POST" class="form-inline">
+                <div class="form-group mb-2">
+                    <input type="number" class="form-control-plaintext" name="phone" placeholder="Enter Phone Number  " required>
+                </div>
+                <button type="submit" class="btn btn-primary mb-2"><i class="fa fa-check"></i></button>
+                </form>
+                {{/if}}
+
+                {{#if user.location}}
+                 <p class="card-text"><i class="fa fa-map-marker"></i>  {{user.location}}</p>
+                 {{else}}
+                 <form action="/addLocation" method="POST" class="form-inline">
+                <div class="form-group mb-2">
+                    <input type="text" class="form-control-plaintext" name="location"  placeholder="Enter location  " required>
+                </div>
+                <button type="submit" class="btn btn-primary mb-2"><i class="fa fa-check"></i></button>
+                </form>
+                {{/if}}
+             
+            </div>
+    </div>
+    <div class="container">
+        <h1>My Posts</h1>
+    {{#each posts}}
+    <div class="media">
+    <img src={{user.image}} class="mr-3 post-user-pic" >
+        <div class="media-body">
+            <h3 class="mt-0">{{user.fullName}}</h3>
+                <h5>{{title}} <small class="status">{{status}}</small></h5>  
+                <p>{{body}}</p>
+                <small><b>{{tag}}</b> on </small>
+                <small>{{date}}</small>
+                <img src={{image}} class="mr-3 post-user-pic"> 
+                <br>
+                <p>
+                    <a href="/edit/Post/{{_id}}"> <i class="fa fa-pencil"></i></a>
+                    <form action="/{{_id}}?_method=DELETE" method="POST">
+                    <button type="submit" class="btn btn-danger">
+                    <i class=" fa fa-trash">
+                    </i>
+                    </button>
+                    </form>
+                </p>
+
+         </div>
+    </div>
+    <hr>
+{{else}}
+<p>
+    No posts yet!
+</p>
+{{/each}}
+</div>
+</div>
